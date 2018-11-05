@@ -3,6 +3,7 @@ import Firebase
 
 //지금 현재는 모든 방을 출력함, 해당 스포츠와 날짜로 필터링 하는 부분이 필요하다.
 class FilteringUsingSportsDateTableViewController: UITableViewController {
+    
     let cellId = "FilteringCellId"
     //users 정보를 배열에 저장
     //var users = [Users]()
@@ -18,6 +19,10 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
         tableView.register(RoomCell.self, forCellReuseIdentifier: cellId)
         //observeMessages()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -51,7 +56,6 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
                 }
                 print("유저 데이터는 채팅방의 UID를 가진다.(중복되지 않는다)")
             })}
-        
     }
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,10 +94,10 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
 
     //각 table의 셀에
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RoomCell
+        
         let room = rooms[indexPath.row]
+        
         //message노드안에 roomId 라는 key를 가진것을 저장 (i.e.g toid = asveqwetwetasdg)
         if let roomId = room.roomUID{
             //users영역에서 toid(asveqwetwetasdg) 에 해당하는 것을 찾아 그것의 레퍼런스를 ref에 저장.
@@ -109,6 +113,7 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
                 print(snapshot)
             }, withCancel: nil)
         }
+        
         cell.textLabel?.text = room.roomTeamName
         cell.detailTextLabel?.text = room.roomNotification
     

@@ -27,7 +27,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
                     if let text = dictionary["text"] as? String{
                         print(text)
                         self.messages.append(text)
-                        
                         self.collectionView?.reloadData()
                     }
                 }
@@ -47,7 +46,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         collectionView?.backgroundColor = UIColor.white
         collectionView?.reloadData()
         collectionView?.alwaysBounceVertical = true
-        
         
 //        let cellWidth : CGFloat = collectionView!.frame.size.width / 4.0
 //        let cellheight : CGFloat = collectionView!.frame.size.height - 2.0
@@ -83,6 +81,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         
         print("왜 실행이 안되냐고 ㅡㅡ")
         cell.textView.text = messages[indexPath.item]
+        cell.sender.text = messages[
         print("이게 실행 안되 ㅜㅜ \(messages[indexPath.item])")
         
         //cell.backgroundColor = UIColor.red

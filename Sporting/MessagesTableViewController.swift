@@ -131,11 +131,9 @@ class MessagesTableViewController: UITableViewController {
     func fetchRooms() {
         //현재 유저의 UID를 불러온후
         if  let currentUserUID = Auth.auth().currentUser?.uid{
-        let ref = Database.database().reference(fromURL: "https://realsporting-d74ae.firebaseio.com/")
-        //현재 로그인한 유저의 UID의 참조값을 저장
-            var count = 0
-        let userReference = ref.child("users").child(currentUserUID)
-        //유저의 데이터에서 groups 밑에 rooms의 UID를 차곡차곡 저장
+        let ref = Database.database().reference(fromURL: "https://realsporting-d74ae.firebaseio.com/")//현재 로그인한 유저의 UID의 참조값을 저장
+        var count = 0
+        let userReference = ref.child("users").child(currentUserUID)//유저의 데이터에서 groups 밑에 rooms의 UID를 차곡차곡 저장
         let usersRoomsCount = userReference.child("groups").observe(.childAdded) { (snapshot1) in
                 var room = Rooms()
                 //snapshot1.key에 해당유저가 들어가있는 room의 UID가 들어가 있다.
@@ -169,11 +167,12 @@ class MessagesTableViewController: UITableViewController {
                                 //print(i.roomTeamName)
                         }
                         self.tableView.reloadData()
-                    }
+                        }
                     }
                 }
             }
         }
+    
     //각 table의 셀에
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RoomCell
