@@ -9,7 +9,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     var rooms:Rooms?{
         didSet{
             navigationItem.title = rooms?.roomTeamName
-            
             observeMessages()
         }
     }
@@ -49,7 +48,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         
 //        let cellWidth : CGFloat = collectionView!.frame.size.width / 4.0
 //        let cellheight : CGFloat = collectionView!.frame.size.height - 2.0
-            let cellSize = CGSize(width: 300 , height:500)
+        let cellSize = CGSize(width: 300 , height:500)
         
         let layout = UICollectionViewFlowLayout()
         //layout.scrollDirection = .vertical //.horizontal
@@ -81,8 +80,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         
         print("왜 실행이 안되냐고 ㅡㅡ")
         cell.textView.text = messages[indexPath.item]
-        cell.sender.text = messages[
-        print("이게 실행 안되 ㅜㅜ \(messages[indexPath.item])")
+        //print("이게 실행 안되 ㅜㅜ \(messages[indexPath.item])")
         
         //cell.backgroundColor = UIColor.red
         cell.backgroundColor = .white

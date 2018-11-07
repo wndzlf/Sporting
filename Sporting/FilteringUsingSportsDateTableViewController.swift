@@ -66,6 +66,9 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
     }
 
     func fetchRooms() {
+        
+        let userRef = Auth.auth()
+        
         Database.database().reference().child("rooms").observe(.childAdded) { (snapshot) in
             if let dictionary = snapshot.value as? [String: Any] {
                 

@@ -8,7 +8,6 @@ class Users: NSObject {
     var sports: Sports?
     var date: Date?
     var imageURL: String?
-    
 }
 
 var curUsers = Users()

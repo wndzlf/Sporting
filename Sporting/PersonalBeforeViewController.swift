@@ -16,6 +16,7 @@ class PersonalBeforeViewController: UIViewController, UINavigationControllerDele
     @IBAction func registerPersonal(_ sender: Any) {
         uploadPicture()
     }
+    
 //    override func loadView() {
 //        // Create a GMSCameraPosition that tells the map to display the
 //        // coordinate -33.86,151.20 at zoom level 6.
@@ -32,6 +33,7 @@ class PersonalBeforeViewController: UIViewController, UINavigationControllerDele
 ////        marker.map = mapView
 //
 //    }
+    
     func uploadPicture() {
         
         let storageRef = Storage.storage().reference().child("MyImage2.png")
@@ -91,6 +93,7 @@ class PersonalBeforeViewController: UIViewController, UINavigationControllerDele
 
         imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
     }
+    
 //    왜안되는 코드인지 모르겠음
 //    @objc func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
 //        print("111111")
