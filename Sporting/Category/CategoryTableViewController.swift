@@ -60,5 +60,11 @@ class CategoryTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = RoomPreInfoViewController()
+        vc.currentSportNum = indexPath.row
+        navigationController?.pushViewController(vc, animated: false)
+    }
+    
 }
 

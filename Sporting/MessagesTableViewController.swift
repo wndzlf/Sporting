@@ -131,29 +131,28 @@ class MessagesTableViewController: UITableViewController {
                 count = count + 1
                 self.rooms.append(room)
         }
-           //유저가 들어간 rooms를 찾아준다.
-            userReference.child("groups").observe(.childAdded) { (snapshot) in
+     Database.database().reference().child("groups").observe(.childAdded) { (snapshot) in
                 for i in self.rooms{
-                    //유저가 들어가있는 방과 firebase스냅샷에 있는 데이터를 비교
-                    if snapshot.key == i.roomUID!{
-                        if let dictionary = snapshot.value as? [String: Any] {
-                            let roomCaptainUID = dictionary["roomCaptainUID"]
-                            let roomDateTime = dictionary["roomDate-time"]
-                            let roomNotification = dictionary["roomNotification"]
-                            let roomPicture = dictionary["roomPicture"]
-                            let roomPlace = dictionary["roomPlace"]
-                            let roomSports = dictionary["roomSports"]
-                            let roomTeamName = dictionary["roomTeamName"]
-                            
-                            i.roomCaptainUID = roomCaptainUID as? String
-                            i.roomDateTime = roomDateTime as? String
-                            i.roomNotification = roomNotification as? String
-                            i.roomPicture = roomPicture as? String
-                            i.roomPlace = roomPlace as? String
-                            i.roomSports = roomSports as? String
-                            i.roomTeamName = roomTeamName as? String
-                            
-                            print("1231234123412341234")
+                        //유저가 들어가있는 방과 firebase스냅샷에 있는 데이터를 비교
+                            if snapshot.key == i.roomUID!{
+                            if let dictionary = snapshot.value as? [String: Any] {
+                                let roomCaptainUID = dictionary["roomCaptainUID"]
+                                let roomDateTime = dictionary["roomDate-time"]
+                                let roomNotification = dictionary["roomNotification"]
+                                let roomPicture = dictionary["roomPicture"]
+                                let roomPlace = dictionary["roomPlace"]
+                                let roomSports = dictionary["roomSports"]
+                                let roomTeamName = dictionary["roomTeamName"]
+
+                                i.roomCaptainUID = roomCaptainUID as? String
+                                i.roomDateTime = roomDateTime as? String
+                                i.roomNotification = roomNotification as? String
+                                i.roomPicture = roomPicture as? String
+                                i.roomPlace = roomPlace as? String
+                                i.roomSports = roomSports as? String
+                                i.roomTeamName = roomTeamName as? String
+                                //print(i)
+                                //print(i.roomTeamName)
                         }
                         self.tableView.reloadData()
                     }
@@ -161,37 +160,36 @@ class MessagesTableViewController: UITableViewController {
             }
         }
     }
-            
-//            Database.database().reference().child("groups").observe(.childAdded) { (snapshot) in
-//                for i in self.rooms{
-//                        //유저가 들어가있는 방과 firebase스냅샷에 있는 데이터를 비교
-//                            if snapshot.key == i.roomUID!{
-//                            if let dictionary = snapshot.value as? [String: Any] {
-//                                let roomCaptainUID = dictionary["roomCaptainUID"]
-//                                let roomDateTime = dictionary["roomDate-time"]
-//                                let roomNotification = dictionary["roomNotification"]
-//                                let roomPicture = dictionary["roomPicture"]
-//                                let roomPlace = dictionary["roomPlace"]
-//                                let roomSports = dictionary["roomSports"]
-//                                let roomTeamName = dictionary["roomTeamName"]
-//
-//                                i.roomCaptainUID = roomCaptainUID as? String
-//                                i.roomDateTime = roomDateTime as? String
-//                                i.roomNotification = roomNotification as? String
-//                                i.roomPicture = roomPicture as? String
-//                                i.roomPlace = roomPlace as? String
-//                                i.roomSports = roomSports as? String
-//                                i.roomTeamName = roomTeamName as? String
-//                                //print(i)
-//                                //print(i.roomTeamName)
-//                        }
-//                        self.tableView.reloadData()
-//                        }
-//                    }
-//                }
-//            }
-     
     
+    //유저가 들어간 rooms를 찾아준다.
+    //            userReference.child("groups").observe(.childAdded) { (snapshot) in
+    //                for i in self.rooms{
+    //                    //유저가 들어가있는 방과 firebase스냅샷에 있는 데이터를 비교
+    //                    if snapshot.key == i.roomUID!{
+    //                        if let dictionary = snapshot.value as? [String: Any] {
+    //                            let roomCaptainUID = dictionary["roomCaptainUID"]
+    //                            let roomDateTime = dictionary["roomDate-time"]
+    //                            let roomNotification = dictionary["roomNotification"]
+    //                            let roomPicture = dictionary["roomPicture"]
+    //                            let roomPlace = dictionary["roomPlace"]
+    //                            let roomSports = dictionary["roomSports"]
+    //                            let roomTeamName = dictionary["roomTeamName"]
+    //
+    //                            i.roomCaptainUID = roomCaptainUID as? String
+    //                            i.roomDateTime = roomDateTime as? String
+    //                            i.roomNotification = roomNotification as? String
+    //                            i.roomPicture = roomPicture as? String
+    //                            i.roomPlace = roomPlace as? String
+    //                            i.roomSports = roomSports as? String
+    //                            i.roomTeamName = roomTeamName as? String
+    //
+    //                            print("1231234123412341234")
+    //                        }
+    //                        self.tableView.reloadData()
+    //                    }
+    //                }
+    //            }
+    //}
     //각 table의 셀에
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RoomCell

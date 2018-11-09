@@ -19,6 +19,7 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
         tableView.register(RoomCell.self, forCellReuseIdentifier: cellId)
         //observeMessages()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
@@ -57,6 +58,7 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
                 print("유저 데이터는 채팅방의 UID를 가진다.(중복되지 않는다)")
             })}
     }
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rooms.count
@@ -98,7 +100,6 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
     //각 table의 셀에
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RoomCell
-        
         let room = rooms[indexPath.row]
         
         //message노드안에 roomId 라는 key를 가진것을 저장 (i.e.g toid = asveqwetwetasdg)
@@ -116,12 +117,10 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
                 print(snapshot)
             }, withCancel: nil)
         }
-        
         cell.textLabel?.text = room.roomTeamName
         cell.detailTextLabel?.text = room.roomNotification
     
         return cell
-        
     }
     
 }

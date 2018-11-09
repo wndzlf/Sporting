@@ -22,11 +22,7 @@ class CalendarViewController: UIViewController,FSCalendarDataSource, FSCalendarD
         return formatter
     }()
     //delegate함수 이함수를 실행해서 선택된 날짜를 print할 수 있다.
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
-        //print(self.formatter.string(from: date))
-        //print(fsCalendar.selectedDate?.description)
-        
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {        
         curUsers.date = date
         //유저데이터에 -1 되어서 들어간다. 이거는 라이브러리의 버그인거같음
         print("유저데이터에 들어간 날짜\(date)")

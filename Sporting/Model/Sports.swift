@@ -1,14 +1,14 @@
 import UIKit
 
 //스포츠를 enum으로 나눔
-enum Sports: String {
-    case soccer = "축구"
-    case baseball = "야구"
-    case badminton = "배드민턴"
-    case running = "런닝"
-    case swimming = "수영"
-    case yoga = "요가"
-    case ski = "스키"
-    case tennis = "테니스"
+enum Sports: Int {
+    case soccer = 0
+    case badminton = 1
+    case baseball = 2
+    case running = 3
+    case yoga = 4
+    case ski = 5
+    case tennis = 6
+    case swimming = 7
 }
 

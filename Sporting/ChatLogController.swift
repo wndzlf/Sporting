@@ -12,7 +12,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
             observeMessages()
         }
     }
-    
     var messages:[String] = []
     //해당방의 메시지를 모두 불러온다. 지금 현재 불러오는거 성공함
     func observeMessages(){
@@ -87,15 +86,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         return cell
     }
     
-//    func collectionview(_ collectionView: UICollectionView, layout collectionViewLayout:
-//        UICollectionViewLayout, sizeForItemAtIndexPath indexPath:IndexPath) -> CGSize{
-//        return CGSize(width: view.frame.width, height: 80)
-//    }
-//    func collectionView(_ collectionView:UICollectionView, layout collectioViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize{
-//        let size = CGSize(width: view.frame.width, height: 80)
-//        //let size = CGSize(width: 100, height: 80)
-//        return size
-//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         print("실행 되는것인가 ...")
         return CGSize(width: view.frame.width, height: 80)

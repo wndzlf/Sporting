@@ -12,5 +12,4 @@ class Rooms:NSObject{
     var roomPicture: String?
     var roomUID: String?
     var roomTeamName: String?
-    
 }
