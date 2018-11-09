@@ -21,12 +21,16 @@ class RoomPreInfoViewController: UIViewController{
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
         
+        
+        super.viewDidLoad()
+        
+        if let titleString = Sports(rawValue: currentSportNum!)?.placeHolder {
+                self.title = titleString
+        }
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
         fetchRooms()
         
         view.backgroundColor = .white
@@ -38,8 +42,6 @@ class RoomPreInfoViewController: UIViewController{
         self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        
-        
     }
     
     func fetchRooms() {
@@ -91,9 +93,7 @@ extension RoomPreInfoViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RoomCell
         let room = rooms[indexPath.row]
         
-        //message노드안에 roomId 라는 key를 가진것을 저장 (i.e.g toid = asveqwetwetasdg)
         if let roomId = room.roomUID{
-            //users영역에서 toid(asveqwetwetasdg) 에 해당하는 것을 찾아 그것의 레퍼런스를 ref에 저장.
             let ref = Database.database().reference().child("messages").child(roomId)
             ref.observe(.value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String:AnyObject]
@@ -110,7 +110,35 @@ extension RoomPreInfoViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = room.roomNotification
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let chatLogController = ChatLogController(collectionViewLayout:UICollectionViewLayout())
+        chatLogController.rooms = self.rooms[indexPath.row]
+        navigationController?.pushViewController(chatLogController, animated: true)
+        //now
         
+        //현재 유저의 UID를 불러오고실행, 이제는 선택된 그룹의 UID를 불러오자
+        if  let currentUserUID = Auth.auth().currentUser?.uid{
+            //                 //데이터베이스를 불러온후
+            let ref = Database.database().reference(fromURL: "https://realsporting-d74ae.firebaseio.com/")
+            //현재 로그인한 유저의 UID의 참조값을 저장
+            let userReference = ref.child("users").child(currentUserUID)
+            //현재 유저의 email, password, imageURL을 values값에 저장
+            let roomUID = self.rooms[indexPath.row].roomUID
+            
+            let values = ["email":curUsers.email ,"password":curUsers.password ,"imageURL":curUsers.imageURL] as [String : Any]
+            
+            let values2 = [String(describing: roomUID!):1] as [String : Any]
+            
+            //users->groups->groupUID가 들어간다. 채팅방에 들어가면 유저는 채팅방의 groupUID를 가지게 된다.
+            userReference.child("groups").updateChildValues(values2, withCompletionBlock: { (err, ref) in
+                if err != nil{
+                    print(err)
+                    return
+                }
+                print("유저 데이터는 채팅방의 UID를 가진다.(중복되지 않는다)")
+            })}
     }
 }
 

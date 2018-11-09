@@ -12,6 +12,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
             observeMessages()
         }
     }
+    
     var messages:[String] = []
     //해당방의 메시지를 모두 불러온다. 지금 현재 불러오는거 성공함
     func observeMessages(){
@@ -36,58 +37,45 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let rightbutton = UIBarButtonItem(image: UIImage(named: "person"), style: .plain, target: self, action: #selector(notificationInfo))
+        navigationController?.navigationItem.rightBarButtonItem = rightbutton
+        
         //채팅창의 화면
-       
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.dataSource = self
         collectionView?.delegate = self
         collectionView?.backgroundColor = UIColor.white
         collectionView?.reloadData()
         collectionView?.alwaysBounceVertical = true
-        
-//        let cellWidth : CGFloat = collectionView!.frame.size.width / 4.0
-//        let cellheight : CGFloat = collectionView!.frame.size.height - 2.0
+    
         let cellSize = CGSize(width: 300 , height:500)
-        
         let layout = UICollectionViewFlowLayout()
-        //layout.scrollDirection = .vertical //.horizontal
         layout.itemSize = cellSize
-        //layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        //layout.minimumLineSpacing = 1.0
-        //layout.minimumInteritemSpacing = 1.0
         collectionView?.setCollectionViewLayout(layout, animated: true)
         
         setInputComponents()
     }
+    @objc func notificationInfo() {
+        
+    }
     
     let inputTextField:UITextField = {
         let TextField = UITextField()
-        //TextField.placeholder = "Enter Message"
         TextField.translatesAutoresizingMaskIntoConstraints = false
-        //TextField.delegate = self
         return TextField
     }()
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("good \(messages.count)")
         return messages.count
     }
-    //이게 실행이안됨
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        print("this is indexPath")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
-        
-        print("왜 실행이 안되냐고 ㅡㅡ")
         cell.textView.text = messages[indexPath.item]
-        //print("이게 실행 안되 ㅜㅜ \(messages[indexPath.item])")
-        
-        //cell.backgroundColor = UIColor.red
         cell.backgroundColor = .white
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("실행 되는것인가 ...")
         return CGSize(width: view.frame.width, height: 80)
     }
     
@@ -143,11 +131,8 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     
     @objc func handleSend(){
-        print("gogossing")
         let ref = Database.database().reference().child("rooms").child((rooms?.roomUID!)!).child("messages")
         let childRef = ref.childByAutoId()
-        print("this is chidRef \(childRef)")
-        print(childRef.key)
         
         let FromId = Auth.auth().currentUser!.uid
         let timestamp = Int(NSDate().timeIntervalSince1970)

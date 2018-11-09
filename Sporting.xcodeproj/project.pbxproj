@@ -162,8 +162,8 @@
 				849693B520204750005BED15 /* CalendarViewController.swift */,
 				849693B920208AEA005BED15 /* MakeRoomViewController.swift */,
 				84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */,
-				84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */,
 				849693B72020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift */,
+				84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */,
 			);
 			path = Sporting;
 			sourceTree = "<group>";
