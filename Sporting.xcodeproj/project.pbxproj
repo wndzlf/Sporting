@@ -83,30 +83,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84FAC3E5202357E9003FF15B /* View */ = {
+		84B89684219915D2004AE8AD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				84FD8A37201F0188001D37D4 /* Model */,
+				84FAC3E5202357E9003FF15B /* Views */,
+				84FAC3E8202360E6003FF15B /* Extension */,
+				84FAF5FF218C952E001BFDDA /* ViewControllers */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		84B8968521991605004AE8AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8463B956201220E000E316E8 /* Sporting.entitlements */,
+				AB09DC1B2011C2C8007D600D /* AppDelegate.swift */,
+				849693AE20202F9A005BED15 /* Main.storyboard */,
+				AB09DC222011C2C8007D600D /* Assets.xcassets */,
+				AB09DC242011C2C8007D600D /* LaunchScreen.storyboard */,
+				84BC4B4620185EC100F9C062 /* Room.swift */,
+				84CF52D7201F50B400CA1C86 /* GoogleService-Info.plist */,
+				AB09DC272011C2C8007D600D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		84FAC3E5202357E9003FF15B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84FAF5FD218C944F001BFDDA /* CategoryTableViewCell.swift */,
 				84FAC3E6202357FA003FF15B /* RoomCell.swift */,
 				84FAC3EB2023729B003FF15B /* ChatMessageCell.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		84FAC3E8202360E6003FF15B /* Helpers */ = {
+		84FAC3E8202360E6003FF15B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				84FAC3E9202360F5003FF15B /* Extensions.swift */,
 			);
-			path = Helpers;
+			path = Extension;
 			sourceTree = "<group>";
 		};
-		84FAF5FF218C952E001BFDDA /* Category */ = {
+		84FAF5FF218C952E001BFDDA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				84FAF5F9218C8AEC001BFDDA /* CategoryTableViewController.swift */,
-				84FAF5FD218C944F001BFDDA /* CategoryTableViewCell.swift */,
+				AB09DC1D2011C2C8007D600D /* ViewController.swift */,
+				84B2D331201ED77B00199BE3 /* LoginViewController.swift */,
+				84B2D333201ED86F00199BE3 /* LegisterViewController.swift */,
+				84FD8A35201EF62C001D37D4 /* MessagesTableViewController.swift */,
+				84FD8A3C201F3A1F001D37D4 /* PersonalBeforeViewController.swift */,
+				849693B520204750005BED15 /* CalendarViewController.swift */,
+				849693B920208AEA005BED15 /* MakeRoomViewController.swift */,
+				84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */,
+				849693B72020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift */,
+				84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */,
 			);
-			path = Category;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		84FD8A37201F0188001D37D4 /* Model */ = {
@@ -142,28 +178,8 @@
 		AB09DC1A2011C2C8007D600D /* Sporting */ = {
 			isa = PBXGroup;
 			children = (
-				84FAF5FF218C952E001BFDDA /* Category */,
-				84FAC3E8202360E6003FF15B /* Helpers */,
-				84FAC3E5202357E9003FF15B /* View */,
-				84FD8A37201F0188001D37D4 /* Model */,
-				8463B956201220E000E316E8 /* Sporting.entitlements */,
-				AB09DC1B2011C2C8007D600D /* AppDelegate.swift */,
-				AB09DC1D2011C2C8007D600D /* ViewController.swift */,
-				849693AE20202F9A005BED15 /* Main.storyboard */,
-				AB09DC222011C2C8007D600D /* Assets.xcassets */,
-				AB09DC242011C2C8007D600D /* LaunchScreen.storyboard */,
-				84BC4B4620185EC100F9C062 /* Room.swift */,
-				84CF52D7201F50B400CA1C86 /* GoogleService-Info.plist */,
-				AB09DC272011C2C8007D600D /* Info.plist */,
-				84B2D331201ED77B00199BE3 /* LoginViewController.swift */,
-				84B2D333201ED86F00199BE3 /* LegisterViewController.swift */,
-				84FD8A35201EF62C001D37D4 /* MessagesTableViewController.swift */,
-				84FD8A3C201F3A1F001D37D4 /* PersonalBeforeViewController.swift */,
-				849693B520204750005BED15 /* CalendarViewController.swift */,
-				849693B920208AEA005BED15 /* MakeRoomViewController.swift */,
-				84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */,
-				849693B72020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift */,
-				84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */,
+				84B8968521991605004AE8AD /* Resources */,
+				84B89684219915D2004AE8AD /* Sources */,
 			);
 			path = Sporting;
 			sourceTree = "<group>";
