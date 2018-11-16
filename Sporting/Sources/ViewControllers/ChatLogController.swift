@@ -14,6 +14,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     
     var messages:[String] = []
+    
     //해당방의 메시지를 모두 불러온다. 지금 현재 불러오는거 성공함
     func observeMessages(){
         //해당방의 UID에서 메시지들을 꺼내보자 snapshot.key가 메시지들의 고유한 값들
@@ -21,10 +22,18 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         userMessagesRef.observe(.childAdded) { (snapshot) in
             let messageRef = Database.database().reference().child("messages").child(snapshot.key)
             messageRef.observe(.value, with: { (snapshot2) in
-                //print(snapshot2.value)
                 if let dictionary = snapshot2.value as? [String:Any]{
+//                    guard let text = dictionary["text"] as? String
+//
+//                    guard let text = dictionary["text"] as? String
+//                    guard let text = dictionary["text"] as? String
+//                    let roomMessage: Message!
+//                    roomMessage.roomId
+//                    roomMessage.FromId
+//                    roomMessage.text
+//                    roomMessage.timeStamp
+                    
                     if let text = dictionary["text"] as? String{
-                        print(text)
                         self.messages.append(text)
                         self.collectionView?.reloadData()
                     }
@@ -74,6 +83,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
+        let message = messages[indexPath.item]
         
         cell.textView.text = messages[indexPath.item]
         cell.bubbleviewWidthAnchor?.constant = estimateFrameForText(text: messages[indexPath.item]).width + 32
@@ -152,25 +162,22 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     
     @objc func handleSend(){
-        let ref = Database.database().reference().child("rooms").child((rooms?.roomUID!)!).child("messages")
-        let childRef = ref.childByAutoId()
+        
+        //룸의 메세지 참조
+        let messageRefOfRoom = Database.database().reference().child("rooms").child((rooms?.roomUID!)!).child("messages")
+        let messageID = messageRefOfRoom.childByAutoId()
         
         let FromId = Auth.auth().currentUser!.uid
         let timestamp = Int(NSDate().timeIntervalSince1970)
         let values = ["text":inputTextField.text! , "roomId":rooms?.roomUID! ,
                       "FromId":FromId, "timestamp":timestamp] as [String : Any]
         
-        childRef.updateChildValues(values)
         
-        let messageRef = Database.database().reference().child("messages").child(childRef.key!)
+        messageID.updateChildValues(values)
+    
+        //메세지 자체의 참조
+        let messageRef = Database.database().reference().child("messages").child(messageID.key!)
         messageRef.updateChildValues(values)
-        
-        //messages에 저장
-        //rooms 의 messages의 배열에 메시지의 고유한 값을 저장.
-        let userMessagRef = Database.database().reference().child("rooms").child((rooms?.roomUID!)!).child("messages")
-        
-        let messageId = childRef.key
-        userMessagRef.updateChildValues([messageId:1])
     }
 }
 
