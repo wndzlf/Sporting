@@ -9,12 +9,13 @@ class ChatMessageCell: UICollectionViewCell {
         tv.font = UIFont.systemFont(ofSize: 16)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.clear
+        tv.textColor = .white
         return tv
     }()
     
     let bubbleView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(displayP3Red: 0, green: 137, blue: 249, alpha: 0.5)
+        view.backgroundColor = UIColor(displayP3Red: 0, green: 137, blue: 249, alpha: 1)
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false

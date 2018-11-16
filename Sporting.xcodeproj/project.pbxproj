@@ -47,7 +47,7 @@
 		849693B920208AEA005BED15 /* MakeRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRoomViewController.swift; sourceTree = "<group>"; };
 		84B2D331201ED77B00199BE3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84B2D333201ED86F00199BE3 /* LegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegisterViewController.swift; sourceTree = "<group>"; };
-		84BC4B4620185EC100F9C062 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		84BC4B4620185EC100F9C062 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Room.swift; path = ../../Resources/Room.swift; sourceTree = "<group>"; };
 		84CF52D7201F50B400CA1C86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomPreInfoViewController.swift; path = /Users/admin/Desktop/iosForGithub/Sporting/Sporting/RoomPreInfoViewController.swift; sourceTree = "<absolute>"; };
 		84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		AB09DC1D2011C2C8007D600D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB09DC222011C2C8007D600D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB09DC252011C2C8007D600D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AB09DC272011C2C8007D600D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB09DC272011C2C8007D600D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sporting/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		CC049A654925035DABC1ED12 /* Pods-Sporting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sporting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sporting/Pods-Sporting.debug.xcconfig"; sourceTree = "<group>"; };
 		D2148A1F76691110E4859AD3 /* Pods_Sporting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sporting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,11 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				8463B956201220E000E316E8 /* Sporting.entitlements */,
-				AB09DC1B2011C2C8007D600D /* AppDelegate.swift */,
 				849693AE20202F9A005BED15 /* Main.storyboard */,
 				AB09DC222011C2C8007D600D /* Assets.xcassets */,
 				AB09DC242011C2C8007D600D /* LaunchScreen.storyboard */,
-				84BC4B4620185EC100F9C062 /* Room.swift */,
 				84CF52D7201F50B400CA1C86 /* GoogleService-Info.plist */,
 				AB09DC272011C2C8007D600D /* Info.plist */,
 			);
@@ -141,6 +139,7 @@
 				84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */,
 				849693B72020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift */,
 				84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */,
+				84BC4B4620185EC100F9C062 /* Room.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -160,8 +159,8 @@
 		AB09DC0F2011C2C8007D600D = {
 			isa = PBXGroup;
 			children = (
-				AB09DC192011C2C8007D600D /* Products */,
 				AB09DC1A2011C2C8007D600D /* Sporting */,
+				AB09DC192011C2C8007D600D /* Products */,
 				AD8EE261E5EECF01C341EF17 /* Pods */,
 				F141571445120DA631DB305B /* Frameworks */,
 			);
@@ -178,8 +177,9 @@
 		AB09DC1A2011C2C8007D600D /* Sporting */ = {
 			isa = PBXGroup;
 			children = (
-				84B8968521991605004AE8AD /* Resources */,
+				AB09DC1B2011C2C8007D600D /* AppDelegate.swift */,
 				84B89684219915D2004AE8AD /* Sources */,
+				84B8968521991605004AE8AD /* Resources */,
 			);
 			path = Sporting;
 			sourceTree = "<group>";
@@ -504,7 +504,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6958JMS7R4;
-				INFOPLIST_FILE = Sporting/Info.plist;
+				INFOPLIST_FILE = Sporting/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sporting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -523,7 +523,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6958JMS7R4;
-				INFOPLIST_FILE = Sporting/Info.plist;
+				INFOPLIST_FILE = Sporting/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sporting;
 				PRODUCT_NAME = "$(TARGET_NAME)";

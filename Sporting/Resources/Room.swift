@@ -50,18 +50,18 @@ let person1 = Person(name: "Hanna", id: "gkssk925", friend: 2, count: 5, personT
 let person2 = Person(name: "Seungyeon", id: "yeon8033", friend: 1, count:3, personType: .member)
 let person3 = Person(name: "Joonghyun", id: "dkfjais", friend: 5, count: 0, personType: .captain)
 
-var rooms = [
-    Room(teamName: "중랑FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕하세요 중랑FC입니다. 초보안받습니다.", place : "dkajfosdjfijv3556", roomCaptain: person3),
-    Room(teamName: "원FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"고수만 컴온컴온", place : "가나다라마바사아자차카타파하", roomCaptain: person3),
-    Room(teamName: "가자FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"달리자", place : "노원구장", roomCaptain: person3),
-    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC.", place : "중랑구립구장", roomCaptain: person3),
-    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC.", place : "중랑구립구장", roomCaptain: person3),
-    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
-    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
-    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
-    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
-    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
-]
+//var rooms = [
+//    Room(teamName: "중랑FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕하세요 중랑FC입니다. 초보안받습니다.", place : "dkajfosdjfijv3556", roomCaptain: person3),
+//    Room(teamName: "원FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"고수만 컴온컴온", place : "가나다라마바사아자차카타파하", roomCaptain: person3),
+//    Room(teamName: "가자FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"달리자", place : "노원구장", roomCaptain: person3),
+//    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC.", place : "중랑구립구장", roomCaptain: person3),
+//    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC.", place : "중랑구립구장", roomCaptain: person3),
+//    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
+//    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
+//    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
+//    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
+//    Room(teamName: "안녕FC", sports: "soccer", date:Date(), peopleTotal:20, peopleNeed:10, person:[person1,person2,person3], notice:"안녕FC입니다.", place : "중랑구립구장", roomCaptain: person3),
+//]
 
 
 

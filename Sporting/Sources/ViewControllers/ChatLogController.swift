@@ -76,7 +76,25 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 80)
+        
+        
+        var height: CGFloat = 80
+        
+        //get estimated height somehow???
+        
+        let text = messages[indexPath.row]
+        print(text)
+        height = estimateFrameForText(text: text).height
+        print(height)
+        
+        return CGSize(width: view.frame.width, height: height+30)
+    }
+    
+    private func estimateFrameForText(text:String) -> CGRect {
+        let size = CGSize(width: 200, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], context: nil)
     }
     
     func setInputComponents(){
