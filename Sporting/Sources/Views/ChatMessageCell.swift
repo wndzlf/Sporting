@@ -15,7 +15,7 @@ class ChatMessageCell: UICollectionViewCell {
     
     let bubbleView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(displayP3Red: 0, green: 137, blue: 249, alpha: 1)
+        view.backgroundColor = UIColor(red:0.10, green:0.60, blue:0.91, alpha:1.0)
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -25,9 +25,10 @@ class ChatMessageCell: UICollectionViewCell {
     let sender : UILabel = {
         let sd = UILabel()
         sd.translatesAutoresizingMaskIntoConstraints = false
-        
         return sd
     }()
+    
+    var bubbleviewWidthAnchor: NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,24 +37,21 @@ class ChatMessageCell: UICollectionViewCell {
         addSubview(textView)
         addSubview(sender)
 
-        bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant:-3).isActive = true
         bubbleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        bubbleView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        bubbleviewWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 200)
+        bubbleviewWidthAnchor?.isActive = true
         bubbleView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         
-        textView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        textView.rightAnchor.constraint(equalTo: bubbleView.rightAnchor).isActive = true
         textView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        textView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        textView.leftAnchor.constraint(equalTo: bubbleView.leftAnchor , constant:8).isActive = true
         textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         
         sender.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10).isActive = true
         sender.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor).isActive = true
         sender.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        
-        //backgroundColor = UIColor.brown
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

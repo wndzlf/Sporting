@@ -41,6 +41,10 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         let rightbutton = UIBarButtonItem(image: UIImage(named: "person"), style: .plain, target: self, action: #selector(notificationInfo))
         navigationController?.navigationItem.rightBarButtonItem = rightbutton
         
+        //top padding , bottom padding messga
+        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        
         //채팅창의 화면
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.dataSource = self
@@ -70,30 +74,29 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
+        
         cell.textView.text = messages[indexPath.item]
+        cell.bubbleviewWidthAnchor?.constant = estimateFrameForText(text: messages[indexPath.item]).width + 32
         cell.backgroundColor = .white
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
         var height: CGFloat = 80
         
-        //get estimated height somehow???
-        
+        //get estimated height
         let text = messages[indexPath.row]
-        print(text)
         height = estimateFrameForText(text: text).height
-        print(height)
-        
         return CGSize(width: view.frame.width, height: height+30)
     }
     
     private func estimateFrameForText(text:String) -> CGRect {
+        //text의 사이즈
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         
+        //텍스트의 시스템 폰트 크기
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], context: nil)
     }
     
@@ -156,6 +159,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         let timestamp = Int(NSDate().timeIntervalSince1970)
         let values = ["text":inputTextField.text! , "roomId":rooms?.roomUID! ,
                       "FromId":FromId, "timestamp":timestamp] as [String : Any]
+        
         childRef.updateChildValues(values)
         
         let messageRef = Database.database().reference().child("messages").child(childRef.key!)
