@@ -97,7 +97,9 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     
     private func setupCell(cell: ChatMessageCell , message: Message) {
         guard let fromId = message.FromId else {return}
+        
 
+        
         if fromId == Auth.auth().currentUser?.uid {
             cell.bubbleviewRightAnchor?.isActive = true
             cell.bubbleViewLeftAncor?.isActive = false
@@ -112,13 +114,12 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         var height: CGFloat = 80
-        
         //get estimated height
         if let text = messages[indexPath.row].text {
                 height = estimateFrameForText(text: text).height
         }
+        
         return CGSize(width: view.frame.width, height: height+30)
     }
     
@@ -137,9 +138,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(containerView)
-        //view.addSubview(collectionView!)
-//        //ios9 constraint anchors
-//        //x,y,w,h
         containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
@@ -149,21 +147,17 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         sendButton.setTitle("보내기", for: .normal)
         sendButton.addTarget(self, action: #selector(handleSend), for: UIControlEvents.touchUpInside)
         sendButton.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(sendButton)
         
-        //x,y,w,h
+        containerView.addSubview(sendButton)
         sendButton.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         sendButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         sendButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         sendButton.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
-        //text
+        
         containerView.addSubview(inputTextField)
-//        //x,y,w,h
         inputTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor,constant:8).isActive = true
         inputTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         inputTextField.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
-//        //leftAnchor
         inputTextField.rightAnchor.constraint(equalTo: sendButton.leftAnchor).isActive = true
         inputTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
 
@@ -199,7 +193,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         //메세지 자체의 참조
         let messageRef = Database.database().reference().child("messages").child(messageID.key!)
         messageRef.updateChildValues(values)
-        
     }
 }
 
