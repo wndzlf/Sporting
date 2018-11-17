@@ -12,9 +12,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
             observeMessages()
         }
     }
-    
     var messages:[Message] = []
-    
     
     //해당방의 메시지를 모두 불러온다. 지금 현재 불러오는거 성공함
     func observeMessages(){
@@ -24,7 +22,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
             let messageRef = Database.database().reference().child("messages").child(snapshot.key)
             messageRef.observe(.value, with: { (snapshot2) in
                 if let dictionary = snapshot2.value as? [String:Any]{
-                    
                     guard let timestamp = dictionary["timestamp"] as? NSNumber else{ return}
                     guard let fromId = dictionary["FromId"] as? String else{ return }
                     guard let roomId = dictionary["roomId"] as? String else{ return}
@@ -89,14 +86,29 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ChatMessageCell
         let message = messages[indexPath.item]
         
+        setupCell(cell: cell, message: message)
+        
         if let text = messages[indexPath.row].text {
             cell.textView.text = text
             cell.bubbleviewWidthAnchor?.constant = estimateFrameForText(text: text).width + 32
         }
-        
-        
-        cell.backgroundColor = .white
         return cell
+    }
+    
+    private func setupCell(cell: ChatMessageCell , message: Message) {
+        guard let fromId = message.FromId else {return}
+
+        if fromId == Auth.auth().currentUser?.uid {
+            cell.bubbleviewRightAnchor?.isActive = true
+            cell.bubbleViewLeftAncor?.isActive = false
+            cell.bubbleView.backgroundColor = UIColor(red:0.10, green:0.60, blue:0.91, alpha:1.0)
+            cell.profileImageView.isHidden = true
+        }else{
+            cell.bubbleviewRightAnchor?.isActive = false
+            cell.bubbleViewLeftAncor?.isActive = true
+            cell.bubbleView.backgroundColor = UIColor.lightGray
+            cell.profileImageView.isHidden = false
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -150,6 +162,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         inputTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor,constant:8).isActive = true
         inputTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
         inputTextField.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
 //        //leftAnchor
         inputTextField.rightAnchor.constraint(equalTo: sendButton.leftAnchor).isActive = true
         inputTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
@@ -177,9 +190,9 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         
         let FromId = Auth.auth().currentUser!.uid
         let timestamp = Int(NSDate().timeIntervalSince1970)
+        
         let values = ["text":inputTextField.text! , "roomId":rooms?.roomUID! ,
                       "FromId":FromId, "timestamp":timestamp] as [String : Any]
-        
         
         messageID.updateChildValues(values)
     
