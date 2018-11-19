@@ -32,7 +32,7 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
         let chatLogController = ChatLogController(collectionViewLayout:UICollectionViewLayout())
         //현재의 navigationController에 push를 한다.
         chatLogController.rooms = self.rooms[indexPath.row]
-        print("this is chatlogcontroller.rooms \(chatLogController.rooms)")
+        //print("this is chatlogcontroller.rooms \(chatLogController.rooms)")
         navigationController?.pushViewController(chatLogController, animated: true)
         //now
         
@@ -55,7 +55,7 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
                     print(err)
                     return
                 }
-                print("유저 데이터는 채팅방의 UID를 가진다.(중복되지 않는다)")
+                //print("유저 데이터는 채팅방의 UID를 가진다.(중복되지 않는다)")
             })}
     }
     
@@ -66,33 +66,36 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-
+    
+    //유저가 속한 방만 데려온다.
     func fetchRooms() {
-        
-        let userRef = Auth.auth()
-        
+        let userUID = Auth.auth().currentUser?.uid
+        Database.database().reference().child("users").child(userUID!).child("groups").observe(.childAdded) { (snapshot) in
+            let roomID = snapshot.key
         Database.database().reference().child("rooms").observe(.childAdded) { (snapshot) in
             if let dictionary = snapshot.value as? [String: Any] {
-                
-                var room = Rooms()
-                room.roomUID = snapshot.key
-                let roomCaptainUID = dictionary["roomCaptainUID"]
-                let roomDateTime = dictionary["roomDate-time"]
-                let roomNotification = dictionary["roomNotification"]
-                let roomPicture = dictionary["roomPicture"]
-                let roomPlace = dictionary["roomPlace"]
-                let roomSports = dictionary["roomSports"]
-                let roomTeamName = dictionary["roomTeamName"]
-                
-                room.roomCaptainUID = roomCaptainUID as! String
-                //room.roomDateTime = roomDateTime as! String
-                room.roomNotification = roomNotification as! String
-                room.roomPicture = roomPicture as! String
-                room.roomPlace = roomPlace as! String
-                room.roomTeamName = roomTeamName as! String
-                //room.roomSports = roomSports as! Sports
-                self.rooms.append(room)
-                self.tableView.reloadData()
+                let room = Rooms()
+                if snapshot.key == roomID {
+                    room.roomUID = snapshot.key
+                    guard let roomCaptainUID = dictionary["roomCaptainUID"] as? String else {return}
+                    //let roomDateTime = dictionary["roomDate-time"]
+                    guard let roomNotification = dictionary["roomNotification"]  as? String else {return}
+                    guard let roomPicture = dictionary["roomPicture"]  as? String else {return}
+                    guard let roomPlace = dictionary["roomPlace"]  as? String else {return}
+                    //let roomSports = dictionary["roomSports"]
+                    guard let roomTeamName = dictionary["roomTeamName"]  as? String else {return}
+                    
+                    room.roomCaptainUID = roomCaptainUID
+                    //room.roomDateTime = roomDateTime as! String
+                    room.roomNotification = roomNotification
+                    room.roomPicture = roomPicture
+                    room.roomPlace = roomPlace
+                    room.roomTeamName = roomTeamName
+                    //room.roomSports = roomSports as! Sports
+                    self.rooms.append(room)
+                    self.tableView.reloadData()
+                    }
+                }
             }
         }
     }
@@ -107,14 +110,14 @@ class FilteringUsingSportsDateTableViewController: UITableViewController {
             //users영역에서 toid(asveqwetwetasdg) 에 해당하는 것을 찾아 그것의 레퍼런스를 ref에 저장.
             let ref = Database.database().reference().child("messages").child(roomId)
             ref.observe(.value, with: { (snapshot) in
-                if let dictionary = snapshot.value as? [String:AnyObject]
-                {
-                    //cell.textLabel?.text = dictionary["roomTeamName"] as? String
-                    //if let imageURL = dictionary["imageURL"] {
-                    //cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: imageURL as! String)
-                    //}
-                }
-                print(snapshot)
+//                if let dictionary = snapshot.value as? [String:AnyObject]
+//                {
+//                    //cell.textLabel?.text = dictionary["roomTeamName"] as? String
+//                    //if let imageURL = dictionary["imageURL"] {
+//                    //cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: imageURL as! String)
+//                    //}
+//                }
+                //print(snapshot)
             }, withCancel: nil)
         }
         cell.textLabel?.text = room.roomTeamName

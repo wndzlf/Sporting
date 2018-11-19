@@ -12,8 +12,8 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
             observeMessages()
         }
     }
-    var messages:[Message] = []
     
+    var messages:[Message] = []
     //해당방의 메시지를 모두 불러온다. 지금 현재 불러오는거 성공함
     func observeMessages(){
         //해당방의 UID에서 메시지들을 꺼내보자 snapshot.key가 메시지들의 고유한 값들
@@ -78,7 +78,6 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }()
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("messagescount \(messages.count)")
         return messages.count
     }
     
@@ -98,7 +97,8 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     private func setupCell(cell: ChatMessageCell , message: Message) {
         guard let fromId = message.FromId else {return}
         
-
+//        guard let profileImageURL = curUsers.imageURL else {return}
+//        cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageURL)
         
         if fromId == Auth.auth().currentUser?.uid {
             cell.bubbleviewRightAnchor?.isActive = true

@@ -13,10 +13,10 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if Auth.auth().currentUser != nil{
-            //이미 들어 가있는 사람은 로그인 화면이 뜨지 않는다.
-           self.moveToTabar(ani:false)
-        }
+//        if Auth.auth().currentUser != nil{
+//            //이미 들어 가있는 사람은 로그인 화면이 뜨지 않는다.
+//           self.moveToTabar(ani:false)
+//        }
     }
     @IBAction func loginOregister(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex{

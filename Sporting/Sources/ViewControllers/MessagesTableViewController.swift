@@ -46,7 +46,7 @@ class MessagesTableViewController: UITableViewController {
                 if err != nil{
                     return
                 }
-                    print("유저 데이터는 채팅방의 UID를 가진다.(중복되지 않는다)")
+                    //print("유저 데이터는 채팅방의 UID를 가진다.(중복되지 않는다)")
                 }
             )
         }
@@ -109,8 +109,8 @@ class MessagesTableViewController: UITableViewController {
                     self.messages = Array(self.messagesDictionary.values)
                 }
                 //self.messages.append(message)
-                print("aaaaaaaaaaaaaaaaaaaaaa")
-                print(message.text)
+                //print("aaaaaaaaaaaaaaaaaaaaaa")
+                //print(message.text)
                 //print(message.text)
                 self.tableView.reloadData()
             }
