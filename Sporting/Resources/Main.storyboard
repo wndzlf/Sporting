@@ -13,7 +13,7 @@
         <!--방목록-->
         <scene sceneID="yrK-CF-E7a">
             <objects>
-                <tableViewController id="o0V-hE-qP2" customClass="FilteringUsingSportsDateTableViewController" customModule="Sporting" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="o0V-hE-qP2" customClass="ParticipateRoom" customModule="Sporting" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BYk-sd-qgt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="790" y="1522"/>
         </scene>
-        <!--Personal Before View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="UIC-Lz-dKc">
             <objects>
-                <viewController id="Vpt-Fd-om5" customClass="PersonalBeforeViewController" customModule="Sporting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vpt-Fd-om5" customClass="ProfileVC" customModule="Sporting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tfg-gk-Hrn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +184,7 @@
                     <navigationItem key="navigationItem" id="jgM-Tt-V3E"/>
                     <connections>
                         <outlet property="imageView" destination="33z-ug-rnA" id="hF5-dX-tkv"/>
-                        <outlet property="mapView" destination="dja-oO-YFq" id="alh-aY-Hvx"/>
+                        <outlet property="mapView" destination="dja-oO-YFq" id="Qf0-DP-lA2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xtw-GS-Sme" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -225,10 +225,10 @@
             </objects>
             <point key="canvasLocation" x="601" y="-232"/>
         </scene>
-        <!--Category Table View Controller-->
+        <!--CategoryTVC-->
         <scene sceneID="aII-mK-g21">
             <objects>
-                <tableViewController id="jK2-Hf-IFt" customClass="CategoryTableViewController" customModule="Sporting" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jK2-Hf-IFt" customClass="CategoryTVC" customModule="Sporting" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hqe-S3-fyd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

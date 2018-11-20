@@ -3,14 +3,11 @@ import Firebase
 import GoogleMaps
 
 //세번째 탭
-class PersonalBeforeViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-   
-
-    @IBOutlet weak var mapView: GMSMapView!
+class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+let imagePicker = UIImagePickerController()
     
-    let imagePicker = UIImagePickerController()
+    @IBOutlet var mapView: GMSMapView!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBAction func registerPersonal(_ sender: Any) {
         uploadPicture()
     }

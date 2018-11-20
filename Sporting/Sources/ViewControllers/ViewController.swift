@@ -9,8 +9,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil{
             //효과 없음 false
@@ -58,6 +58,7 @@ class ViewController: UIViewController {
         })
     }
  }
+    
 //테이블 컨트롤러로 이동하기 위한 코드
     func  moveToTabar(ani:Bool) {
     //메인

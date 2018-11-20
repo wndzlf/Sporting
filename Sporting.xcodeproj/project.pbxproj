@@ -12,11 +12,10 @@
 		849693B220203BE8005BED15 /* Sports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B120203BE8005BED15 /* Sports.swift */; };
 		849693B420203FAE005BED15 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B320203FAE005BED15 /* Rooms.swift */; };
 		849693B620204750005BED15 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B520204750005BED15 /* CalendarViewController.swift */; };
-		849693B82020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B72020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift */; };
-		849693BA20208AEA005BED15 /* MakeRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B920208AEA005BED15 /* MakeRoomViewController.swift */; };
+		849693B82020508C005BED15 /* ParticipateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B72020508C005BED15 /* ParticipateRoom.swift */; };
+		849693BA20208AEA005BED15 /* MakeRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B920208AEA005BED15 /* MakeRoomVC.swift */; };
 		84B2D332201ED77B00199BE3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2D331201ED77B00199BE3 /* LoginViewController.swift */; };
 		84B2D334201ED86F00199BE3 /* LegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2D333201ED86F00199BE3 /* LegisterViewController.swift */; };
-		84BC4B4720185EC100F9C062 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC4B4620185EC100F9C062 /* Room.swift */; };
 		84CF52D8201F50B400CA1C86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84CF52D7201F50B400CA1C86 /* GoogleService-Info.plist */; };
 		84E19EDE21957440002AF53B /* RoomPreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */; };
 		84E6FF5E2021BE7E0054FAB6 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */; };
@@ -24,14 +23,13 @@
 		84FAC3E7202357FA003FF15B /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC3E6202357FA003FF15B /* RoomCell.swift */; };
 		84FAC3EA202360F5003FF15B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC3E9202360F5003FF15B /* Extensions.swift */; };
 		84FAC3EC2023729B003FF15B /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAC3EB2023729B003FF15B /* ChatMessageCell.swift */; };
-		84FAF5FA218C8AEC001BFDDA /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAF5F9218C8AEC001BFDDA /* CategoryTableViewController.swift */; };
+		84FAF5FA218C8AEC001BFDDA /* CategoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAF5F9218C8AEC001BFDDA /* CategoryTVC.swift */; };
 		84FAF5FC218C9169001BFDDA /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAF5FB218C9169001BFDDA /* Sport.swift */; };
 		84FAF5FE218C944F001BFDDA /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FAF5FD218C944F001BFDDA /* CategoryTableViewCell.swift */; };
 		84FD8A36201EF62C001D37D4 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD8A35201EF62C001D37D4 /* MessagesTableViewController.swift */; };
 		84FD8A39201F01AB001D37D4 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD8A38201F01AB001D37D4 /* Users.swift */; };
-		84FD8A3D201F3A1F001D37D4 /* PersonalBeforeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD8A3C201F3A1F001D37D4 /* PersonalBeforeViewController.swift */; };
+		84FD8A3D201F3A1F001D37D4 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD8A3C201F3A1F001D37D4 /* ProfileVC.swift */; };
 		AB09DC1C2011C2C8007D600D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09DC1B2011C2C8007D600D /* AppDelegate.swift */; };
-		AB09DC1E2011C2C8007D600D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09DC1D2011C2C8007D600D /* ViewController.swift */; };
 		AB09DC232011C2C8007D600D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB09DC222011C2C8007D600D /* Assets.xcassets */; };
 		AB09DC262011C2C8007D600D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB09DC242011C2C8007D600D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -43,11 +41,10 @@
 		849693B120203BE8005BED15 /* Sports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sports.swift; sourceTree = "<group>"; };
 		849693B320203FAE005BED15 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		849693B520204750005BED15 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		849693B72020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringUsingSportsDateTableViewController.swift; sourceTree = "<group>"; };
-		849693B920208AEA005BED15 /* MakeRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRoomViewController.swift; sourceTree = "<group>"; };
+		849693B72020508C005BED15 /* ParticipateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateRoom.swift; sourceTree = "<group>"; };
+		849693B920208AEA005BED15 /* MakeRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRoomVC.swift; sourceTree = "<group>"; };
 		84B2D331201ED77B00199BE3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84B2D333201ED86F00199BE3 /* LegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegisterViewController.swift; sourceTree = "<group>"; };
-		84BC4B4620185EC100F9C062 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Room.swift; path = ../../Resources/Room.swift; sourceTree = "<group>"; };
 		84CF52D7201F50B400CA1C86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomPreInfoViewController.swift; path = /Users/admin/Desktop/iosForGithub/Sporting/Sporting/RoomPreInfoViewController.swift; sourceTree = "<absolute>"; };
 		84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
@@ -55,15 +52,14 @@
 		84FAC3E6202357FA003FF15B /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		84FAC3E9202360F5003FF15B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		84FAC3EB2023729B003FF15B /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
-		84FAF5F9218C8AEC001BFDDA /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		84FAF5F9218C8AEC001BFDDA /* CategoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTVC.swift; sourceTree = "<group>"; };
 		84FAF5FB218C9169001BFDDA /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		84FAF5FD218C944F001BFDDA /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		84FD8A35201EF62C001D37D4 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		84FD8A38201F01AB001D37D4 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
-		84FD8A3C201F3A1F001D37D4 /* PersonalBeforeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalBeforeViewController.swift; sourceTree = "<group>"; };
+		84FD8A3C201F3A1F001D37D4 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		AB09DC182011C2C8007D600D /* Sporting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sporting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB09DC1B2011C2C8007D600D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AB09DC1D2011C2C8007D600D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB09DC222011C2C8007D600D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB09DC252011C2C8007D600D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB09DC272011C2C8007D600D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sporting/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -128,18 +124,16 @@
 		84FAF5FF218C952E001BFDDA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				84FAF5F9218C8AEC001BFDDA /* CategoryTableViewController.swift */,
-				AB09DC1D2011C2C8007D600D /* ViewController.swift */,
+				84FAF5F9218C8AEC001BFDDA /* CategoryTVC.swift */,
 				84B2D331201ED77B00199BE3 /* LoginViewController.swift */,
 				84B2D333201ED86F00199BE3 /* LegisterViewController.swift */,
 				84FD8A35201EF62C001D37D4 /* MessagesTableViewController.swift */,
-				84FD8A3C201F3A1F001D37D4 /* PersonalBeforeViewController.swift */,
+				84FD8A3C201F3A1F001D37D4 /* ProfileVC.swift */,
 				849693B520204750005BED15 /* CalendarViewController.swift */,
-				849693B920208AEA005BED15 /* MakeRoomViewController.swift */,
+				849693B920208AEA005BED15 /* MakeRoomVC.swift */,
 				84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */,
-				849693B72020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift */,
+				849693B72020508C005BED15 /* ParticipateRoom.swift */,
 				84E19EDD21957440002AF53B /* RoomPreInfoViewController.swift */,
-				84BC4B4620185EC100F9C062 /* Room.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -354,22 +348,20 @@
 				849693B620204750005BED15 /* CalendarViewController.swift in Sources */,
 				84B2D334201ED86F00199BE3 /* LegisterViewController.swift in Sources */,
 				849693B420203FAE005BED15 /* Rooms.swift in Sources */,
-				AB09DC1E2011C2C8007D600D /* ViewController.swift in Sources */,
 				84FD8A39201F01AB001D37D4 /* Users.swift in Sources */,
 				84FAF5FC218C9169001BFDDA /* Sport.swift in Sources */,
-				84FAF5FA218C8AEC001BFDDA /* CategoryTableViewController.swift in Sources */,
+				84FAF5FA218C8AEC001BFDDA /* CategoryTVC.swift in Sources */,
 				84E19EDE21957440002AF53B /* RoomPreInfoViewController.swift in Sources */,
-				849693B82020508C005BED15 /* FilteringUsingSportsDateTableViewController.swift in Sources */,
-				84FD8A3D201F3A1F001D37D4 /* PersonalBeforeViewController.swift in Sources */,
+				849693B82020508C005BED15 /* ParticipateRoom.swift in Sources */,
+				84FD8A3D201F3A1F001D37D4 /* ProfileVC.swift in Sources */,
 				84B2D332201ED77B00199BE3 /* LoginViewController.swift in Sources */,
 				AB09DC1C2011C2C8007D600D /* AppDelegate.swift in Sources */,
 				84FAC3E7202357FA003FF15B /* RoomCell.swift in Sources */,
-				849693BA20208AEA005BED15 /* MakeRoomViewController.swift in Sources */,
+				849693BA20208AEA005BED15 /* MakeRoomVC.swift in Sources */,
 				849693B220203BE8005BED15 /* Sports.swift in Sources */,
 				84FAF5FE218C944F001BFDDA /* CategoryTableViewCell.swift in Sources */,
 				84FAC3E42022F3E7003FF15B /* Message.swift in Sources */,
 				84FAC3EC2023729B003FF15B /* ChatMessageCell.swift in Sources */,
-				84BC4B4720185EC100F9C062 /* Room.swift in Sources */,
 				84FD8A36201EF62C001D37D4 /* MessagesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

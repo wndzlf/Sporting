@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension CategoryTableViewController {
+extension CategoryTVC {
     func setupData() {
         let sport1 = Sport(title: "축구" , Image: UIImage(named: "soccer.png")!)
         let sport2 = Sport(title: "배드민턴" , Image: UIImage(named: "ski.png")!)
@@ -23,7 +23,7 @@ extension CategoryTableViewController {
     }
 }
 
-class CategoryTableViewController: UITableViewController {
+class CategoryTVC: UITableViewController {
     
     var sports:[Sport]!
     
@@ -54,7 +54,7 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! CategoryTableViewCell
-        cell.cellImage.image = sports[indexPath.row].Image
+        //cell.cellImage.image = sports[indexPath.row].Image
         cell.cellImage.contentMode = .scaleAspectFit
         cell.cellTitle.text = sports[indexPath.row].title
         return cell

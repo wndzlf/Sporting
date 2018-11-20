@@ -12,11 +12,9 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
             observeMessages()
         }
     }
-    
     var messages:[Message] = []
-    //해당방의 메시지를 모두 불러온다. 지금 현재 불러오는거 성공함
+    
     func observeMessages(){
-        //해당방의 UID에서 메시지들을 꺼내보자 snapshot.key가 메시지들의 고유한 값들
         let messageRefOfRoom = Database.database().reference().child("rooms").child((rooms?.roomUID!)!).child("messages")
         messageRefOfRoom.observe(.childAdded) { (snapshot) in
             let messageRef = Database.database().reference().child("messages").child(snapshot.key)
@@ -48,17 +46,18 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         let rightbutton = UIBarButtonItem(image: UIImage(named: "person"), style: .plain, target: self, action: #selector(notificationInfo))
         navigationController?.navigationItem.rightBarButtonItem = rightbutton
         
-        //top padding , bottom padding messga
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         
-        //채팅창의 화면
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.dataSource = self
         collectionView?.delegate = self
         collectionView?.backgroundColor = UIColor.white
         collectionView?.reloadData()
         collectionView?.alwaysBounceVertical = true
+        
+        let index = IndexPath(item: (self.messages.count) - 1, section: 0)
+        collectionView?.scrollToItem(at: index, at: .bottom, animated: true)
     
         let cellSize = CGSize(width: 300 , height:500)
         let layout = UICollectionViewFlowLayout()

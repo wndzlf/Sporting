@@ -3,7 +3,7 @@ import GoogleMaps
 import Firebase
 
 //방을 생성해야 방을 출력해 줄 수 있어서 조금 만저 볼게요
-class MakeRoomViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+class MakeRoomVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var profileImage: UIImageView!
