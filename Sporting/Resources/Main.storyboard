@@ -313,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tS6-yz-Jco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2190" y="-396"/>
+            <point key="canvasLocation" x="2385" y="-320"/>
         </scene>
         <!--스포츠/날짜-->
         <scene sceneID="1eQ-9o-7QM">

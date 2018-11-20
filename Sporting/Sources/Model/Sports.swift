@@ -29,8 +29,6 @@ enum Sports: Int {
             return "테니스"
         case .swimming:
             return "수영"
-        default:
-            break
         }
     }
 }

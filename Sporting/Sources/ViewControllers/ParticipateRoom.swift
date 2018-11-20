@@ -35,7 +35,7 @@ class ParticipateRoom: UITableViewController {
         
         usrRef.child("groups").updateChildValues(values) { (err, ref) in
             if err != nil {
-                print(err)
+                //print(err)
                 return
             }
         }

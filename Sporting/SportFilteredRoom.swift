@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class RoomPreInfoViewController: UIViewController{
+class SportFilteredRoom: UIViewController{
 
     var currentSportNum:Int?
     let cellId = "cellId"
@@ -44,32 +44,30 @@ class RoomPreInfoViewController: UIViewController{
     }
     
     func fetchRooms() {
-        let userRef = Auth.auth()
+        //let userRef = Auth.auth()
         Database.database().reference().child("rooms").observe(.childAdded) { (snapshot) in
             if let dictionary = snapshot.value as? [String: Any] {
                 let room = Rooms()
                 room.roomUID = snapshot.key
-                let roomCaptainUID = dictionary["roomCaptainUID"]
-                let roomNotification = dictionary["roomNotification"]
-                let roomPicture = dictionary["roomPicture"]
-                let roomSports = dictionary["roomSports"]
-                let roomTeamName = dictionary["roomTeamName"]
+                guard let roomCaptainUID = dictionary["roomCaptainUID"] as? String else {return}
+                guard let roomNotification = dictionary["roomNotification"] as? String else {return}
+                guard let roomPicture = dictionary["roomPicture"] as? String else {return}
+                guard let roomSports = dictionary["roomSports"] as? String else {return}
+                guard let roomTeamName = dictionary["roomTeamName"] as? String else {return}
                 //let roomPlace = dictionary["roomPlace"]
                 //let roomDateTime = dictionary["roomDate-time"]
                 
-                room.roomCaptainUID = roomCaptainUID as! String
-                room.roomNotification = roomNotification as! String
-                room.roomPicture = roomPicture as! String
-                room.roomTeamName = roomTeamName as! String
-                room.roomSports = roomSports as! String
+                room.roomCaptainUID = roomCaptainUID
+                room.roomNotification = roomNotification
+                room.roomPicture = roomPicture
+                room.roomTeamName = roomTeamName
+                room.roomSports = roomSports
                 // room.roomPlace = roomPlace as! String
                 //room.roomDateTime = roomDateTime as! String
 
-                guard let csn = self.currentSportNum else{
-                    return
-                }
+                guard let csn = self.currentSportNum else{ return }
                 
-                //해당 스포츠로 필터링
+                //스포츠 필터
                 let roomSportsID = Int(room.roomSports!)
                 if (roomSportsID == csn){
                     self.rooms.append(room)
@@ -81,7 +79,7 @@ class RoomPreInfoViewController: UIViewController{
 }
 
 
-extension RoomPreInfoViewController: UITableViewDataSource {
+extension SportFilteredRoom: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return rooms.count
     }
@@ -94,19 +92,20 @@ extension RoomPreInfoViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! RoomCell
         let room = rooms[indexPath.row]
         
-        if let roomId = room.roomUID{
-            let ref = Database.database().reference().child("messages").child(roomId)
-            ref.observe(.value, with: { (snapshot) in
-                if let dictionary = snapshot.value as? [String:AnyObject]
-                {
-                    //cell.textLabel?.text = dictionary["roomTeamName"] as? String
-                    //if let imageURL = dictionary["imageURL"] {
-                    //cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: imageURL as! String)
-                    //}
-                }
-                print(snapshot)
-            }, withCancel: nil)
-        }
+//        if let roomId = room.roomUID{
+//            let ref = Database.database().reference().child("messages").child(roomId)
+//            ref.observe(.value, with: { (snapshot) in
+//                if let dictionary = snapshot.value as? [String:AnyObject]
+//                {
+//                    //cell.textLabel?.text = dictionary["roomTeamName"] as? String
+//                    //if let imageURL = dictionary["imageURL"] {
+//                    //cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: imageURL as! String)
+//                    //}
+//                }
+//                print(snapshot)
+//            }, withCancel: nil)
+//        }
+        
         cell.textLabel?.text = room.roomTeamName
         cell.detailTextLabel?.text = room.roomNotification
         
@@ -130,14 +129,14 @@ extension RoomPreInfoViewController: UITableViewDataSource {
             print("123454213")
             print(values)
             if err != nil {
-                print(err)
+                //print(err)
                 return
             }
             
         }
     }
 }
-extension RoomPreInfoViewController: UITableViewDelegate {
+extension SportFilteredRoom: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }

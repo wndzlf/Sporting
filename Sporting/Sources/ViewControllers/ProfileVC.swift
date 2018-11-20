@@ -20,12 +20,13 @@ let imagePicker = UIImagePickerController()
         print("아자차카타파하")
         
         storageRef.putData(uploadData, metadata: metaData, completion: { (meta, error) in
-            guard let meta = meta else {
-                print(error)
-                return
-            }
+//            guard let meta = meta else {
+//                //print(error)
+//                return
+//            }
+            
             storageRef.downloadURL(completion: { (url, err) in
-                print("Download error: \(err), url: \(url)")
+               // print("Download error: \(err), url: \(url)")
                     guard let imageURL = url else {return}
                     curUsers.imageURL = imageURL.absoluteString
                     print("가나다라마바사")
@@ -61,7 +62,7 @@ let imagePicker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        imagePicker.delegate = self
     }
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -72,7 +73,7 @@ let imagePicker = UIImagePickerController()
         dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
     

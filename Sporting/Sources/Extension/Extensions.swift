@@ -19,7 +19,7 @@ extension UIImageView {
         URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, response, error) in
             //download hit an error so lets return out
             if error != nil {
-                print(error)
+               // print(error)
                 return
             }
             

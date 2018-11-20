@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
         //메인
         let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         //탭바컨트롤러의 스토리보드 아이디 = LoggedInVC 이것을 이용해서 다음 화면으로 넘어간다.
-        let loggedInVC:UIViewController = storyboard.instantiateViewController(withIdentifier: iden) as! UIViewController
+        let loggedInVC:UIViewController = storyboard.instantiateViewController(withIdentifier: iden) 
         self.present(loggedInVC, animated: ani, completion: nil)
     }
 }

@@ -61,7 +61,7 @@ class CategoryTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = RoomPreInfoViewController()
+        let vc = SportFilteredRoom()
         vc.currentSportNum = indexPath.row
         navigationController?.pushViewController(vc, animated: false)
     }

@@ -182,9 +182,10 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         let messageID = messageRefOfRoom.childByAutoId()
         
         let FromId = Auth.auth().currentUser!.uid
+        guard let roomID = rooms?.roomUID else {return}
         let timestamp = Int(NSDate().timeIntervalSince1970)
         
-        let values = ["text":inputTextField.text! , "roomId":rooms?.roomUID! ,
+        let values = ["text":inputTextField.text! , "roomId":roomID ,
                       "FromId":FromId, "timestamp":timestamp] as [String : Any]
         
         messageID.updateChildValues(values)
