@@ -21,7 +21,6 @@ class RoomCell:UITableViewCell{
         return label
     }()
 
-    
     let profileImageView:UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

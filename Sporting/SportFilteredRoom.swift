@@ -22,11 +22,9 @@ class SportFilteredRoom: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let titleString = Sports(rawValue: currentSportNum!)?.placeHolder {
                 self.title = titleString
         }
-
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -41,6 +39,16 @@ class SportFilteredRoom: UIViewController{
         self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleMakeRoom))
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    @objc func handleMakeRoom() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let makeRoomVC:MakeRoomVC = storyboard.instantiateViewController(withIdentifier: "makeRoom") as! MakeRoomVC
+        makeRoomVC.currentSportNum = currentSportNum
+        navigationController?.pushViewController(makeRoomVC, animated: true)
     }
     
     func fetchRooms() {
@@ -49,17 +57,18 @@ class SportFilteredRoom: UIViewController{
             if let dictionary = snapshot.value as? [String: Any] {
                 let room = Rooms()
                 room.roomUID = snapshot.key
-                guard let roomCaptainUID = dictionary["roomCaptainUID"] as? String else {return}
+//                guard let roomCaptainUID = dictionary["roomCaptainUID"] as? String else {return}
                 guard let roomNotification = dictionary["roomNotification"] as? String else {return}
-                guard let roomPicture = dictionary["roomPicture"] as? String else {return}
+//                guard let roomPicture = dictionary["roomPicture"] as? String else {return}
                 guard let roomSports = dictionary["roomSports"] as? String else {return}
                 guard let roomTeamName = dictionary["roomTeamName"] as? String else {return}
+                
                 //let roomPlace = dictionary["roomPlace"]
                 //let roomDateTime = dictionary["roomDate-time"]
                 
-                room.roomCaptainUID = roomCaptainUID
+                //room.roomCaptainUID = roomCaptainUID
                 room.roomNotification = roomNotification
-                room.roomPicture = roomPicture
+               // room.roomPicture = roomPicture
                 room.roomTeamName = roomTeamName
                 room.roomSports = roomSports
                 // room.roomPlace = roomPlace as! String

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49B6DAB8D8ED173359D855CA /* Pods_Sporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2148A1F76691110E4859AD3 /* Pods_Sporting.framework */; };
+		842F5AA821A3D18E006417B9 /* MakeRoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F5AA721A3D18E006417B9 /* MakeRoomVC.swift */; };
 		849693AF20202F9A005BED15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849693AE20202F9A005BED15 /* Main.storyboard */; };
 		849693B220203BE8005BED15 /* Sports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B120203BE8005BED15 /* Sports.swift */; };
 		849693B420203FAE005BED15 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B320203FAE005BED15 /* Rooms.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		55F9015E13AE99DDC974DEBA /* Pods-Sporting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sporting.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sporting/Pods-Sporting.release.xcconfig"; sourceTree = "<group>"; };
+		842F5AA721A3D18E006417B9 /* MakeRoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRoomVC.swift; sourceTree = "<group>"; };
 		8463B956201220E000E316E8 /* Sporting.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sporting.entitlements; sourceTree = "<group>"; };
 		849693AE20202F9A005BED15 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		849693B120203BE8005BED15 /* Sports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sports.swift; sourceTree = "<group>"; };
@@ -120,13 +122,14 @@
 		84FAF5FF218C952E001BFDDA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84B2D331201ED77B00199BE3 /* LoginViewController.swift */,
+				84B2D333201ED86F00199BE3 /* LegisterViewController.swift */,
 				84FAF5F9218C8AEC001BFDDA /* CategoryTVC.swift */,
 				84E19EDD21957440002AF53B /* SportFilteredRoom.swift */,
 				84E6FF5D2021BE7E0054FAB6 /* ChatLogController.swift */,
 				849693B72020508C005BED15 /* ParticipateRoom.swift */,
 				84FD8A3C201F3A1F001D37D4 /* ProfileVC.swift */,
-				84B2D331201ED77B00199BE3 /* LoginViewController.swift */,
-				84B2D333201ED86F00199BE3 /* LegisterViewController.swift */,
+				842F5AA721A3D18E006417B9 /* MakeRoomVC.swift */,
 				849693B520204750005BED15 /* CalendarViewController.swift */,
 			);
 			path = ViewControllers;
@@ -224,6 +227,7 @@
 				TargetAttributes = {
 					AB09DC172011C2C8007D600D = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -353,6 +357,7 @@
 				84FAC3E7202357FA003FF15B /* RoomCell.swift in Sources */,
 				849693B220203BE8005BED15 /* Sports.swift in Sources */,
 				84FAF5FE218C944F001BFDDA /* CategoryTableViewCell.swift in Sources */,
+				842F5AA821A3D18E006417B9 /* MakeRoomVC.swift in Sources */,
 				84FAC3E42022F3E7003FF15B /* Message.swift in Sources */,
 				84FAC3EC2023729B003FF15B /* ChatMessageCell.swift in Sources */,
 			);
@@ -484,6 +489,7 @@
 			baseConfigurationReference = CC049A654925035DABC1ED12 /* Pods-Sporting.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sporting/Sporting.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -493,6 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Sporting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -503,6 +510,7 @@
 			baseConfigurationReference = 55F9015E13AE99DDC974DEBA /* Pods-Sporting.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sporting/Sporting.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

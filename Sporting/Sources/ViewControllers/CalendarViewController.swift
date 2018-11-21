@@ -13,14 +13,17 @@ class CalendarViewController: UIViewController,FSCalendarDataSource, FSCalendarD
         
         self.tabBarController?.tabBar.isHidden = false
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     fileprivate let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+    
     //delegate함수 이함수를 실행해서 선택된 날짜를 print할 수 있다.
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {        
         curUsers.date = date

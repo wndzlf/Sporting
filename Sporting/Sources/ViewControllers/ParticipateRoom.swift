@@ -2,11 +2,13 @@ import UIKit
 import Firebase
 
 class ParticipateRoom: UITableViewController {
-    
     let cellId = "FilteringCellId"
     var rooms = [Rooms]()
     var messages = [Message]()
     var messagesDictionary = [String:Message]()
+    
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,12 +18,15 @@ class ParticipateRoom: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //fetchRooms()
+        //tableView.register(RoomCell.self, forCellReuseIdentifier: cellId)
         self.tabBarController?.tabBar.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatLogController = ChatLogController(collectionViewLayout:UICollectionViewLayout())
         chatLogController.rooms = self.rooms[indexPath.row]
@@ -57,18 +62,18 @@ class ParticipateRoom: UITableViewController {
                 let room = Rooms()
                 if snapshot.key == roomID {
                     room.roomUID = snapshot.key
-                    guard let roomCaptainUID = dictionary["roomCaptainUID"] as? String else {return}
+//                    guard let roomCaptainUID = dictionary["roomCaptainUID"] as? String else {return}
                     guard let roomNotification = dictionary["roomNotification"]  as? String else {return}
-                    guard let roomPicture = dictionary["roomPicture"]  as? String else {return}
-                    guard let roomPlace = dictionary["roomPlace"]  as? String else {return}
+//                    guard let roomPicture = dictionary["roomPicture"]  as? String else {return}
+                   // guard let roomPlace = dictionary["roomPlace"]  as? String else {return}
                     guard let roomTeamName = dictionary["roomTeamName"]  as? String else {return}
                     //let roomDateTime = dictionary["roomDate-time"]
                     //let roomSports = dictionary["roomSports"]
                     
-                    room.roomCaptainUID = roomCaptainUID
+                    //room.roomCaptainUID = roomCaptainUID
                     room.roomNotification = roomNotification
-                    room.roomPicture = roomPicture
-                    room.roomPlace = roomPlace
+                    //room.roomPicture = roomPicture
+                    //room.roomPlace = roomPlace
                     room.roomTeamName = roomTeamName
                     //room.roomDateTime = roomDateTime as! String
                     //room.roomSports = roomSports as! Sports
