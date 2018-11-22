@@ -13,6 +13,7 @@ class LegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
     
@@ -28,26 +29,41 @@ class LegisterViewController: UIViewController {
     }
 
     @IBAction func createAccount(_ sender: Any) {
+        
         if let email = emailField.text, let password = passwordField.text {
             Auth.auth().createUser(withEmail: email, password: password, completion: { user, error in
                 if let firebaseError = error {
+                    let alert = UIAlertController(title: "경고", message: "존재하는 이메일입니다.", preferredStyle: UIAlertControllerStyle.alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler:nil)
+                    
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    self.emailField.text = ""
+                    self.passwordField.text = ""
+                    self.passwordField1.text = ""
+                    
                     print(firebaseError.localizedDescription)
-                    self.emailField.text = "존재하는 email입니다"
                     return
                 }
-                guard let uid = user?.user.uid else {
-                    return
-                }
+                //회원가입 성공
+                guard let uid = user?.user.uid else {return}
+                
                 let ref = Database.database().reference(fromURL: "https://realsporting-d74ae.firebaseio.com/")
                 let userReference = ref.child("users").child(uid)
                 let values = ["email": email , "password": password]
                 
                 userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                     if err != nil{
-                        //print(err)
                         return
                     }
-                    print("Firebase에 유저정보를 저장했습니다.")
+                    
+                    let alert = UIAlertController(title: "성공", message: "회원가입이 완료되었습니다.", preferredStyle: UIAlertControllerStyle.alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    print("유저 정보 저장 완료")
                 })
             })
         }

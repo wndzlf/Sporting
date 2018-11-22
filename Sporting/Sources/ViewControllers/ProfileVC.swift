@@ -1,12 +1,10 @@
 import UIKit
 import Firebase
-import GoogleMaps
 
 //세번째 탭
 class ProfileVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 let imagePicker = UIImagePickerController()
     
-    @IBOutlet var mapView: GMSMapView!
     @IBOutlet weak var imageView: UIImageView!
     @IBAction func registerPersonal(_ sender: Any) {
         uploadPicture()
@@ -17,7 +15,6 @@ let imagePicker = UIImagePickerController()
         
         guard let uploadData = UIImagePNGRepresentation(self.imageView.image!) else {return}
         //guard let uploadData = UIImagePNGRepresentation(chosenImage) else {return}
-        print("아자차카타파하")
         
         storageRef.putData(uploadData, metadata: metaData, completion: { (meta, error) in
 //            guard let meta = meta else {
@@ -29,7 +26,6 @@ let imagePicker = UIImagePickerController()
                // print("Download error: \(err), url: \(url)")
                     guard let imageURL = url else {return}
                     curUsers.imageURL = imageURL.absoluteString
-                    print("가나다라마바사")
                     print(imageURL.absoluteString)
             })
 //            meta?.storageReference?.downloadURL(completion: { (url, error) in

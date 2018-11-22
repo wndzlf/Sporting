@@ -12,7 +12,6 @@
 		849693AF20202F9A005BED15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849693AE20202F9A005BED15 /* Main.storyboard */; };
 		849693B220203BE8005BED15 /* Sports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B120203BE8005BED15 /* Sports.swift */; };
 		849693B420203FAE005BED15 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B320203FAE005BED15 /* Rooms.swift */; };
-		849693B620204750005BED15 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B520204750005BED15 /* CalendarViewController.swift */; };
 		849693B82020508C005BED15 /* ParticipateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849693B72020508C005BED15 /* ParticipateRoom.swift */; };
 		84B2D332201ED77B00199BE3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2D331201ED77B00199BE3 /* LoginViewController.swift */; };
 		84B2D334201ED86F00199BE3 /* LegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2D333201ED86F00199BE3 /* LegisterViewController.swift */; };
@@ -40,7 +39,6 @@
 		849693AE20202F9A005BED15 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		849693B120203BE8005BED15 /* Sports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sports.swift; sourceTree = "<group>"; };
 		849693B320203FAE005BED15 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
-		849693B520204750005BED15 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		849693B72020508C005BED15 /* ParticipateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipateRoom.swift; sourceTree = "<group>"; };
 		84B2D331201ED77B00199BE3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84B2D333201ED86F00199BE3 /* LegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegisterViewController.swift; sourceTree = "<group>"; };
@@ -92,11 +90,11 @@
 			isa = PBXGroup;
 			children = (
 				8463B956201220E000E316E8 /* Sporting.entitlements */,
+				AB09DC272011C2C8007D600D /* Info.plist */,
 				849693AE20202F9A005BED15 /* Main.storyboard */,
 				AB09DC222011C2C8007D600D /* Assets.xcassets */,
 				AB09DC242011C2C8007D600D /* LaunchScreen.storyboard */,
 				84CF52D7201F50B400CA1C86 /* GoogleService-Info.plist */,
-				AB09DC272011C2C8007D600D /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -130,7 +128,6 @@
 				849693B72020508C005BED15 /* ParticipateRoom.swift */,
 				84FD8A3C201F3A1F001D37D4 /* ProfileVC.swift */,
 				842F5AA721A3D18E006417B9 /* MakeRoomVC.swift */,
-				849693B520204750005BED15 /* CalendarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,7 +201,6 @@
 				AB09DC152011C2C8007D600D /* Frameworks */,
 				AB09DC162011C2C8007D600D /* Resources */,
 				E6E5FC9F96E135A5E1E7A4C5 /* [CP] Embed Pods Frameworks */,
-				1715F3912A44DF608554C43A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -270,26 +266,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1715F3912A44DF608554C43A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sporting/Pods-Sporting-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sporting/Pods-Sporting-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E6E5FC9F96E135A5E1E7A4C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,7 +273,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sporting/Pods-Sporting-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -305,7 +280,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -343,7 +317,6 @@
 			files = (
 				84E6FF5E2021BE7E0054FAB6 /* ChatLogController.swift in Sources */,
 				84FAC3EA202360F5003FF15B /* Extensions.swift in Sources */,
-				849693B620204750005BED15 /* CalendarViewController.swift in Sources */,
 				84B2D334201ED86F00199BE3 /* LegisterViewController.swift in Sources */,
 				849693B420203FAE005BED15 /* Rooms.swift in Sources */,
 				84FD8A39201F01AB001D37D4 /* Users.swift in Sources */,
@@ -490,13 +463,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Sporting/Sporting.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sporting/Resources/Sporting.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6958JMS7R4;
 				INFOPLIST_FILE = Sporting/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Sporting;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wndzlf.Sporting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -511,13 +485,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Sporting/Sporting.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Sporting/Resources/Sporting.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6958JMS7R4;
 				INFOPLIST_FILE = Sporting/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Sporting;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wndzlf.Sporting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

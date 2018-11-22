@@ -24,7 +24,6 @@ class MakeRoomVC: UIViewController {
         if let titleString = Sports(rawValue: sportsNum)?.placeHolder {
             self.title = titleString + " 방생성"
         }
-        
         let rightBarbuttonItem = UIBarButtonItem(title: "생성", style: .done, target: self, action: #selector(handleComplete))
         self.navigationItem.rightBarButtonItem = rightBarbuttonItem
     }
@@ -36,14 +35,12 @@ class MakeRoomVC: UIViewController {
         guard let roomSports = currentSportNum else {return}
         let roomSportsString = String(roomSports)
         
-        let values = ["roomTeamName":teamName.text!, "roomSports":roomSportsString, "roomNotification":notification.text!,"roomLocation":location.text!, "roomMeetingTime":meetingTime.text!] as [String:Any]
-        
+        let values = ["roomTeamName":teamName.text!, "roomSports":roomSportsString, "roomNotification":notification.text!,"roomPlace":location.text!, "roomMeetingTime":meetingTime.text!] as [String:Any]
         roomId.updateChildValues(values)
         
         guard let usrId = Auth.auth().currentUser?.uid else {return}
         let usrRef = Database.database().reference().child("users").child(usrId).child("groups")
     
-        
         print("roomid")
         guard let roomUID = roomId.key else {return}
         print(roomUID)
@@ -51,7 +48,6 @@ class MakeRoomVC: UIViewController {
         
         usrRef.updateChildValues(values2) { (err, ref) in
             if err != nil {
-                print(err)
                 return
             }
         }
